@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Page</title>
+    {% load static %}
+    
+    <link rel="stylesheet" href="{% static 'stylel.css' %}">
+    
+    <link rel="stylesheet" href="{% static 'assets/css/fontawesome.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/templatemo-574-mexant.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/owl.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/animate.css' %}">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css">
+
+</head>
+<body>
+
+    
+ <!-- ***** Header Area Start ***** -->
+ <header class="header-area header-sticky">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav class="main-nav">
+                    <!-- ***** Logo Start ***** -->
+                    <a href="{% static 'index.html' %}" class="logo">
+                        <img src="{% static 'assets/images/logo.png' %}" alt="">
+                    </a>
+                    <!-- ***** Logo End ***** -->
+                    <!-- ***** Menu Start ***** -->
+                    <ul class="nav">
+                        <div class="orange-button">
+                            <a href="{% url 'index' %}">HOME</a>
+                        </div>
+                       
+                        
+                    
+                    </ul>  
+                    
+                    <a class='menu-trigger'>
+                        <span>Menu</span>
+                    </a>
+                    <!-- ***** Menu End ***** -->
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+                        
+
+ 
+<nav>
+    <a href="#"></a>
+</nav>
+<div class="form-wrapper">
+    <h2>SIGN UP</h2>
+    <form action="{% url 'signup' %}" method="post">
+        {% csrf_token %}
+        <div class="form-control">
+            <input type="text" name="first_name" required>
+            <label>Enter first name</label>
+        </div>
+        <div class="form-control">
+            <input type="text" name="last_name" required>
+            <label> Enter Last name</label>
+        </div>
+        <div class="form-control">
+            <input type="text" name="email" required>
+            <label>Enter your email</label>
+        </div>
+        <div class="form-control">
+            <input type="text" name="username" required>
+            <label>Enter username</label>
+        </div>
+        <div class="form-control">
+            <input type="password" name="password" required>
+            <label>Enter Password</label>
+        </div>
+        <div class="form-control">
+            <input type="password" name="confirm_password" required>
+            <label>Confirm Password</label>
+        </div>
+        <button type="submit">SUBMIT</button>
+        <div class="form-help">
+            <div class="remember-me">
+               
+                
+            </div>
+            
+        </div>
+    </form>
+    <div>
+        {% for message in messages %}
+        <h3> {{message}} </h3>
+        {% endfor %}
+    </div>
+    <p>Already Have an Account? <a href="{% url 'signin' %}">Login</a></p>
+    
+</div>
+
+
+</body>
+
+</html>
